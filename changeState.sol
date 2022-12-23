@@ -19,10 +19,21 @@ contract changeState
 		if(timeNow>startTime+10 seconds)
 		{
 			startTime=timeNow;
-			if(st==S.Init){st=S.Reg;return;}
-			else if(st==S.Reg){st=S.Vote;return;}
-			else {st=S.Done;return;}
-
+			if(st==S.Init)
+			{
+				st=S.Reg;
+				return;
+			}
+			else if(st==S.Reg)
+			{
+				st=S.Vote;
+				return;
+			}
+			else 
+			{
+				st=S.Done;
+				return;
+			}
 		}
 		return;
 	}
