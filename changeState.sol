@@ -13,7 +13,12 @@ contract changeState
 		st=S.Init;
 	}
 
-	function cs() public returns (uint,S)
+	function disp() public view returns (uint,S)
+	{
+		return (startTime,st);
+	}
+
+	function cs() public
 	{
 		timeNow=now;
 		if(timeNow>startTime+10 seconds)
@@ -22,19 +27,23 @@ contract changeState
 			if(st==S.Init)
 			{
 				st=S.Reg;
-				return (timeNow,st);
+				disp();
+				return;
 			}
 			else if(st==S.Reg)
 			{
 				st=S.Vote;
-				return (timeNow,st);
+				disp();
+				return;
 			}
 			else 
 			{
 				st=S.Done;
-				return (timeNow,st);
+				disp();
+				return;
 			}
 		}
-		return (timeNow,st);
+		disp();
+		return;
 	}
 }
