@@ -22,6 +22,7 @@ contract coin
 		if(b[msg.sender]<a)
 			return;
 		b[msg.sender]-=a;
+		b[r]+=a;
 		emit Sent(msg.sender,r,a);
 	}
 }
