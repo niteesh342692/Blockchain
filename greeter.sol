@@ -13,6 +13,6 @@ contract Greeter  {
     }
     
     function hello() view public returns (string memory) {
-        return "Hello, "+yourName+"!";
+        return string(abi.encodePacked("Hello, ",yourName,"!"));
     }
 }
