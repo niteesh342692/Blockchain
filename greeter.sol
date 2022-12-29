@@ -4,14 +4,12 @@ contract Greeter  {
     string public yourName;  // data
     
     /* This runs when the contract is executed */
-    constructor() public {
-        yourName = "World";
-    } 
-    
-    function set(string memory name) public {
-        yourName = name;
-    }
-    
+    constructor(string memory name) public {
+        if(keccak256(bytes(name)) == keccak256(bytes("")))
+            yourName = "World";
+        else
+            yourName = name;
+    }    
     function hello() view public returns (string memory) {
         return string(abi.encodePacked("Hello, ",yourName,"!"));
     }
